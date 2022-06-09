@@ -1,7 +1,7 @@
-# DebianInstallation(describe the installation of debian) 
+# DebianInstallation(describe the installation of debian) <\br>
 1.backup the important files in the old version und bookmark history in the explorer
    -pay attention to home, downloads und documents directory. export all the bookmark from the explorer(firefox, i use).
-   -in firefox(bookmark-> manage bookmark)
+   -in firefox(bookmark-> manage bookmark)<\br>
 2. Downloads the Debian Version
     a.check the internet connection.
     b.if yes the netisnt version.
