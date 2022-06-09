@@ -11,6 +11,16 @@
     - unmount the device with sudo umount /dev/sdb(the name may change)
     - wirte the file to the usb with "sudo dd bs=4M if=/home/bing/Downloads/debian-11.3.0-amd64-netinst.iso of=/dev/sdb status=progress oflag=sync"<br>
         ps: dd is used to convert and copy files including clone disk or wipe data
-4. wlan driver
-   lspci(Network controller: Broadcom Limited BCM43142 802.11b/g/n (rev 01))<br>
+4. wlan driver( these are form the wiki.debian.org)
+   - lspci(Network controller: Broadcom Limited BCM43142 802.11b/g/n (rev 01))<br>
+   - sudo vim /etc/apt/sources.list
+   -  add source deb http://deb.debian.org/debian bullseye contrib non-free
+   -  apt update
+   -  apt-get install linux-image-$(uname -r|sed 's,[^-]*-[^-]*-,,') linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') broadcom-sta-dkms
+   -  modprobe -r b44 b43 b43legacy ssb brcmsmac bcma(remove the conflict module)(make sure the /usr/sbin in the path, if not with sudo /usr/sbin/modprobe)
+   -  modprobe wl(load the wl module)
 5. language setting(optional)
+   - sudo su
+   - dpkg-reconfigure locales
+   - choose the language 
+   - reboot
