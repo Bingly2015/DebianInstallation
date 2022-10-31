@@ -1,0 +1,39 @@
+the functions will be extented by time!!! until 2.Nov voice email, recording function and database will be implemmented. 
+as well as the advantage and disadvantage for Inter-Asterisk-eXchang protocol.
+
+1. install Asterisk 16.16.1~dfsg-1+deb11u1 after you have install debian 11.
+- sudo apt install asterisk asterisk-dahdi
+
+2. create two asterisk client, a link for sip configuration https://www.voip-info.org/asterisk-config-sipconf/
+- put the following text to file sip.conf in /etc/asterisk
+[general]                                      :a section when  If there’s no match at all, the call will be sent to the context defined in the [general] section 
+context =m default
+[1001]                                          : a section with client name 1001 
+type=friend                                     : type is entity, which is both peer and user, peer autheticate at registray, user authenticate to reach its service with context.
+context=from-internal                           : the behavious of asterisk entity, which are defined in extensions.conf and can be jumped by Goto App.
+host=dynamic                                    : The host parameter specifies the hostname or IP address of a SIP peer or user    
+secret=password                                    
+disallow=all                                    : disallow all codec   
+allow=ulaw                                      : allow codec as preference
+
+[1002]
+type=friend
+context=from-internal
+host=dynamic
+secret=password
+disallow=all
+allow=ulaw
+           
+- 
+3. create a asterisk dialplan. A dialplan extension, a set a actions carried out by asterisk server in sequence, when the number is dialed. 
+- add the following code to extensions.conf in /ect/asterisk
+[from-internal]
+
+exten=>1001,1,Dial(SIP/1001,20)     : every action have this format : exten = extension,priority,Command(parameters)
+exten=>1002,1,Dial(SIP/1002,20)        
+
+exten = 1000,1,Answer()
+same = n,Wait(1)                    : use the same entity as the above exten. 
+same = n,Playback(hello-world)
+same = n,Hangup()
+
