@@ -17,14 +17,14 @@ a. add a user to sudoers file
    - go to su first, 
    - sudo usermod -a -G sudo bing(add the username bing to group sudo, sudo muss there or it will show no module usermod)
    
-4. wlan driver( these are form the wiki.debian.org)
+4. wlan driver( these are form the wiki.debian.org and do not enable secure mode for boot)
    - lspci(Network controller: Broadcom Limited BCM43142 802.11b/g/n (rev 01))<br>
    - sudo vim /etc/apt/sources.list
    -  add source deb http://deb.debian.org/debian bullseye contrib non-free
-   -  apt update
-   -  apt-get install linux-image-$(uname -r|sed 's,[^-]*-[^-]*-,,') linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') broadcom-sta-dkms
-   -  modprobe -r b44 b43 b43legacy ssb brcmsmac bcma(remove the conflict module)(make sure the /usr/sbin in the path, if not with sudo /usr/sbin/modprobe)
-   -  modprobe wl(load the wl module)
+   -  sudo apt update
+   -  sudo apt-get install linux-image-$(uname -r|sed 's,[^-]*-[^-]*-,,') linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') broadcom-sta-dkms
+   -  sudo modprobe -r b44 b43 b43legacy ssb brcmsmac bcma(remove the conflict module)(make sure the /usr/sbin in the path, if not with sudo /usr/sbin/modprobe)
+   -  sudo modprobe wl(load the wl module)
    -  reboot to see the wlan
 
 5. language setting(optional)
