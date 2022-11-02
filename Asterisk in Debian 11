@@ -32,8 +32,23 @@ allow=ulaw
 exten=>1001,1,Dial(SIP/1001,20)     : every action have this format : exten = extension,priority,Command(parameters)
 exten=>1002,1,Dial(SIP/1002,20)        
 
+
+
+
+4. record a voice is with the command record and with Playback to play it.
 exten = 1000,1,Answer()
 same = n,Wait(1)                    : use the same entity as the above exten. 
+!!!???same = n,Record(hello-world.gsm)     :here come a the issue of wirte and read permission of the files in the server!!!???
 same = n,Playback(hello-world)
 same = n,Hangup()
 
+5.voicemail(global network is needed.)
+- add the following code to the voicemail.conf
+[general]
+format = wav
+
+1001 => 4711,Bing,brucke2015@gmail.com
+1002 => 0815,Alex, alex@example.com
+
+6. add a postgre database server to asterisk.(asterisk db have a bdb,which is a berkeley database, which does not support sql, but is very fast, when the 
+system only deal with a small mount of dialing, dbd is eought. since there is no difficult task as transaction and sychronization.)
