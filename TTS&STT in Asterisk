@@ -1,1 +1,5 @@
+Can pyVoip with asterisk replaced? does the pyVoip has the server function for other applications?
+here is something about the architecture:https://blog.csdn.net/shaobingj126/article/details/7916417?spm=1001.2101.3001.6650.6&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-6-7916417-blog-91497880.pc_relevant_3mothn_strategy_recovery&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-6-7916417-blog-91497880.pc_relevant_3mothn_strategy_recovery&utm_relevant_index=7
 
+
+can should i set up the configuration files so that client 1 can call client 2, which in another local network?
