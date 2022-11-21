@@ -52,3 +52,5 @@ format = wav
 
 6. add a postgre database server to asterisk.(asterisk db have a bdb,which is a berkeley database, which does not support sql, but is very fast, when the 
 system only deal with a small mount of dialing, dbd is eought. since there is no difficult task as transaction and sychronization.)
+
+7. use agi(asterisk gateway interface for python)
